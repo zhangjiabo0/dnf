@@ -40,7 +40,7 @@ LD_PATH="/dp2/libhook.so"
 if test "$RAW_HOOK_HASH" != "$HOOK_HASH"
 then
   echo "enable dp for channel"
-  LD_PATH="${LD_PATH}:/home/template/init/libhook.so"
+  LD_PATH="/home/template/init/libhook.so:${LD_PATH}"
 fi
 
 LD_PRELOAD="${LD_PATH}" ./df_channel_r channel start
