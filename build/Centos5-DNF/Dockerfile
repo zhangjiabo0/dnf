@@ -56,6 +56,10 @@ ADD build/dnf_data/init.sh /home/template/init/
 ADD build/dnf_data/Config.ini /home/template/init/
 # 添加默认DP文件
 ADD build/dnf_data/libhook.so /home/template/init/
+# 添加70s2 DP文件
+ADD build/dnf_data/libfd.so /home/template/init/
+# 添加70s2 DP文件
+ADD build/dnf_data/libfd_monitor.so /home/template/init/
 # 链接supervisor配置文件
 RUN rm -rf /etc/supervisord.conf && mkdir -p /etc/supervisor/conf.d
 RUN ln -s /home/template/init/supervisor/supervisord.conf /etc/supervisord.conf
