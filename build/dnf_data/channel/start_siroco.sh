@@ -56,9 +56,9 @@ LD_PATH="/dp2/libhook.so"
 if test "$RAW_HOOK_HASH" != "$HOOK_HASH"
 then
   echo "enable dp for channel"
-  LD_PATH="/home/template/init/libfd.so:${LD_PATH}:/home/template/init/libhook.so"
+  LD_PATH="${LD_PATH}:/home/template/init/libhook.so"
 fi
 
-LD_PRELOAD="${LD_PATH}" ./df_game_r $channel_name start
+LD_PRELOAD="/home/template/init/libfd.so:/dp2/frida/frida.so:${LD_PATH}" ./df_game_r $channel_name start
 sleep 2
 cat pid/$channel_name.pid |xargs -n1 -I{} tail --pid={} -f /dev/null
