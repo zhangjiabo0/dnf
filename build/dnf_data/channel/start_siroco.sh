@@ -59,6 +59,6 @@ then
   LD_PATH="${LD_PATH}:/home/template/init/libhook.so"
 fi
 
-LD_PRELOAD="/home/template/init/libfd.so:/home/template/init/frida.so:${LD_PATH}" ./df_game_r $channel_name start
+LD_PRELOAD="/home/template/init/libfd.so:${LD_PATH}" ./df_game_r $channel_name start
 sleep 2
 cat pid/$channel_name.pid |xargs -n1 -I{} tail --pid={} -f /dev/null
